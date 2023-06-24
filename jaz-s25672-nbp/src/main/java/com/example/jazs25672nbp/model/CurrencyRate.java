@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -16,25 +15,30 @@ public class CurrencyRate {
     @Id
     @GeneratedValue
     @Schema(description = "id")
-    private Long id;
+    private Long Id;
 
     @Schema(description = "Waluta")
     private String currency;
 
     @Schema(description = "Kurs")
-    private BigDecimal rate;
+    private double rate;
 
     @Schema(description = "Data rozpoczynająca przedział")
-    private LocalDate date;
+    private LocalDate startDate;
 
     @Schema(description = "Data zamykająca przedział")
-    private LocalDateTime timestamp;
+    private LocalDate endDate;
 
-    public CurrencyRate(String currency, BigDecimal rate, LocalDate date, LocalDateTime timestamp) {
+    @Schema(description = "Aktualna data wykoniania działania")
+    private LocalDateTime dateTime;
+
+
+    public CurrencyRate(String currency, double rate, LocalDate startDate, LocalDate endDate, LocalDateTime actualDate) {
         this.currency = currency;
         this.rate = rate;
-        this.date = date;
-        this.timestamp = timestamp;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.dateTime = actualDate;
     }
 
     public CurrencyRate(){
@@ -42,11 +46,11 @@ public class CurrencyRate {
     }
 
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.Id = id;
     }
 
     public String getCurrency() {
@@ -57,28 +61,36 @@ public class CurrencyRate {
         this.currency = currency;
     }
 
-    public BigDecimal getRate() {
+    public double getRate() {
         return rate;
     }
 
-    public void setRate(BigDecimal rate) {
+    public void setRate(double rate) {
         this.rate = rate;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getStartDate() {
+        return startDate;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setStartDate(LocalDate date) {
+        this.startDate = date;
     }
 
-    public LocalDateTime getTimestamp() {
-        return timestamp;
+    public LocalDate getEndDate() {
+        return endDate;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
+    public void setEndDate(LocalDate timestamp) {
+        this.endDate = timestamp;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 }
 
