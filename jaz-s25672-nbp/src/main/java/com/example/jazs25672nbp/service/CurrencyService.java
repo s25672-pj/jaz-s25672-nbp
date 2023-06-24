@@ -21,9 +21,7 @@ public class CurrencyService {
         this.currencyRepository = currencyRepository;
     }
 
-    public Root getCurrency(String currency, String startDate, String endDate) {
-        return restTemplate.getForObject("https://api.nbp.pl/api/exchangerates/rates/a/{currency}/{startDate}/{endDate}/?format=json", Root.class, currency, startDate, endDate);
-    }
+    private static final String NBPurl = "http://api.nbp.pl/api/exchangerates/rates";
 
 
 }

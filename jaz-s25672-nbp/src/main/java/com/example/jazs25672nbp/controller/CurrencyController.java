@@ -31,7 +31,7 @@ public class CurrencyController {
     })
     @GetMapping("/{currency}/{startDate}/{endDate}")
     public ResponseEntity<CurrencyRate> getCurrencyRate(@PathVariable("currency") String currency, @PathVariable("startDate")LocalDate startDate, @PathVariable("endDate")LocalDate endDate){
-        
+        return  null;
     }
 
 }
