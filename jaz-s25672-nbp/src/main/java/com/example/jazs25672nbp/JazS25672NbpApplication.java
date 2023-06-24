@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class JazS25672NbpApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(JazS25672NbpApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(JazS25672NbpApplication.class, args);
+	}
 
 }
